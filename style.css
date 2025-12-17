@@ -1,55 +1,35 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
- ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    li span {
-      flex: 1;
-    }
-
-    .actions {
-      display: flex;
-      gap: 6px;
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      background: none;
-      font-size: 16px;
-    }
-
-    button:hover {
-      transform: scale(1.1);
-    }
-    
+/* ===== Base (Mobile First) ===== */
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .container {
-  max-width: 400px;
-  margin: 60px auto;
-  background: white;
+  width: 92%;
+  max-width: 420px;
+  background: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  color: #333;
 }
 
+/* Input */
 .input-group {
   display: flex;
   gap: 10px;
@@ -57,48 +37,126 @@ h2 {
 
 #taskInput {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+#taskInput:focus {
+  border-color: #667eea;
 }
 
 #addBtn {
-  padding: 10px 15px;
-  background: black;
+  padding: 12px 18px;
+  background: #667eea;
   color: white;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 4px;
+  transition: 0.3s ease;
 }
 
 #addBtn:hover {
-  background: #333;
+  background: #5a67d8;
+  transform: scale(1.05);
 }
 
+/* Task List */
 #taskList {
+  list-style: none;
   margin-top: 20px;
-  padding: 0;
 }
 
 #taskList li {
-  list-style: none;
-  background: #f7f7f7;
-  padding: 10px;
+  background: #f8f9ff;
+  padding: 12px;
   margin-bottom: 10px;
+  border-radius: 10px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  border-radius: 4px;
+  transition: 0.3s ease;
 }
 
-#taskList button {
-  background: black;
-  color: white;
+#taskList li:hover {
+  background: #eef0ff;
+}
+
+#taskList li span {
+  flex: 1;
+  margin-right: 10px;
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+button {
   border: none;
-  padding: 4px 8px;
   cursor: pointer;
-  border-radius: 4px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.2s ease;
 }
 
-#taskList button:hover {
-  background: darkred;
+button:hover {
+  transform: scale(1.1);
 }
 
+/* Button Colors */
+.edit-btn {
+  background: #38a169;
+  color: white;
+}
+
+.delete-btn {
+  background: #e53e3e;
+  color: white;
+}
+
+/* ===== Mobile Small (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  #addBtn {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+/* ===== Tablet (481px – 768px) ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    max-width: 520px;
+    padding: 24px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+}
+
+/* ===== Small Desktop (769px – 1024px) ===== */
+@media (min-width: 769px) {
+  .container {
+    max-width: 500px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+}
